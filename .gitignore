@@ -166,3 +166,5 @@ Files/
 Logs/
 Old/
 downloads/
+
+Environment_Variables.env
