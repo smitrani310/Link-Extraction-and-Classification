@@ -275,9 +275,7 @@ class VideoClassificationPipeline:
         self.transcriber = transcriber
         self.classifier = classifier
         self.website_summarizer = website_summarizer
-        self.default_categories = default_categories or [
-            "AI", "Cooking", "Travel", "Entertainment", "Marketing", "Tutorial"
-        ]
+        self.default_categories = default_categories
 
     def is_video_domain(self, url: str) -> bool:
         domain = urlparse(url).netloc.lower()
@@ -349,7 +347,7 @@ def main(custom_categories: List[str]):
         "--gpt-model",
         type=str,
         default="gpt-3.5-turbo",
-        help="Name of the GPT model to use (e.g., 'gpt-3.5-turbo', 'gpt-4')."
+        help="Name of the GPT model to use (e.g., 'gpt-3.5-turbo', 'gpt-4o')."
     )
     parser.add_argument(
         "--whisper-model",
@@ -449,6 +447,18 @@ def main(custom_categories: List[str]):
             # Unexpected format
             df.at[i, "Error"] = result
 
+    # --------------------------------------------------
+    # Additional step: split the TAGS column into Tag1, Tag2
+    # --------------------------------------------------
+    # If GPT returned "AI, Marketing" in "TAGS", the code below
+    # splits on the first comma into two columns.
+    df[["Tag1", "Tag2"]] = df["TAGS"].str.split(",", n=1, expand=True)
+    df["Tag1"] = df["Tag1"].fillna("").str.strip()
+    df["Tag2"] = df["Tag2"].fillna("").str.strip()
+
+    desired_columns = ["Links", "Tag1", "Tag2", "Summary", "Error"]
+    df = df.reindex(columns=desired_columns)
+
     # -------------------------------------------
     # 6. Save the resulting DataFrame
     # -------------------------------------------
@@ -459,7 +469,18 @@ def main(custom_categories: List[str]):
 if __name__ == "__main__":
     # Define default categories for video classification
     custom_categories = [
-        "AI", "AI Tools", "Job Search", "Fitness", "Productivity",
-        "Tutorial", "Music", "Comedy", "Other"
+        "AI & Machine Learning", "Productivity", "Tutorial", "Technology", "Marketing", "Business & Finance",
+        "Health & Fitness", "Travel", "Cooking & Food", "Entertainment", "Music", "Comedy", "Education & Tutorials",
+        "News & Current Events", "Lifestyle", "Gaming", "Resume Writing & Cover Letters",
+        "Interview Preparation & Tips", "Career Development & Advancement", "Networking & Personal Branding",
+        "Remote Work Opportunities", "Freelancing & Gig Economy", "Salary & Negotiation", "Job Boards & Platforms",
+        "Industry Insights & Trends", "Company & Culture Insights", "Soft Skills & Communication",
+        "Leadership & Management", "Entrepreneurship & Startups", "Work-Life Balance", "Freelancing & Gig Platforms",
+        "E-commerce & Dropshipping", "Affiliate Marketing & Partnerships", "Blogging & Content Creation",
+        "Social Media Monetization", "Print-on-Demand & Merch", "Online Teaching & Tutoring", "Consulting & Coaching",
+        "Handmade Crafts & Etsy", "Stock Photography & Videography", "Podcasting & Audio Content",
+        "Event Planning & Services", "Real Estate & Airbnb", "Local Services", "Side Hustle Tools & Productivity",
+        "Personal Finance & Budgeting", "Other"
     ]
     main(custom_categories)
+
