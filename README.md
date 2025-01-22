@@ -11,6 +11,10 @@ This project contains two main scripts:
 
 ---
 
+<img src="./Capture.PNG" alt="screenshot" width="800" />
+
+---
+
 ## Table of Contents
 
 1. [Features](#features)  
