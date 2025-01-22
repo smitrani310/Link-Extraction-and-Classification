@@ -60,7 +60,7 @@ logger.critical("This is a CRITICAL message - appears in console AND file.")
 # ------------------------------------------------------------------
 # Load environment variables
 # ------------------------------------------------------------------
-env_path = r"C:\Users\SM\DataspellProjects\Job-Matching-Bot\job_matching_bot.env"
+env_path = r"./Environment_Variables.env"
 load_dotenv(env_path)
 
 openai_api_key = os.getenv("OPENAI_API_KEY", "")
