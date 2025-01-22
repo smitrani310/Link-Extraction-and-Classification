@@ -85,12 +85,12 @@ Logs will be printed to console and also saved in Logs/<timestamp>.log.
     --whisper-model "small" \
     --device "cuda"
 
--- my_links.xlsx: your input file.
--- link-column: column name in the Excel/CSV that contains the links.
--- output: name/path of the output Excel file (default is output.xlsx).
--- gpt-model: which OpenAI model to use (e.g., gpt-3.5-turbo, gpt-4).
--- whisper-model: which Whisper model to use (e.g., base, small, medium, large).
--- device: cuda (GPU) or cpu. If omitted, the script auto-detects GPU availability.
+  - my_links.xlsx: your input file.
+  - link-column: column name in the Excel/CSV that contains the links.
+  - output: name/path of the output Excel file (default is output.xlsx).
+  - gpt-model: which OpenAI model to use (e.g., gpt-3.5-turbo, gpt-4).
+  - whisper-model: which Whisper model to use (e.g., base, small, medium, large).
+  - device: cuda (GPU) or cpu. If omitted, the script auto-detects GPU availability.
 
 Result:
 
@@ -108,8 +108,8 @@ Create .env file named : "Environment_Variables.env" with:
  - OPENAI_API_KEY="YourOpenAIKeyHere"
  
 Ensure the .env file is referenced by your scripts:
-	from dotenv import load_dotenv
-	load_dotenv("path/to/Environment_Variables.env")
+	- from dotenv import load_dotenv
+	- load_dotenv("path/to/Environment_Variables.env")
 This way, openai.api_key can be set via os.getenv("OPENAI_API_KEY").
 
 ---
