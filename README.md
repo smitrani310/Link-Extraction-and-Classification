@@ -79,11 +79,13 @@ Logs will be printed to console and also saved in Logs/<timestamp>.log.
  - Classify text output via GPT into configured categories.
  - Save results (including tags, summaries, and error messages) in a new Excel file.
  
- - (1). Prepare your Excel or CSV file with a column (e.g. "Links") containing URLs.
- - (2). python classify_summarize_links.py my_links.xlsx --link-column "Links" --output "classified_links.xlsx" \
+1) Prepare your Excel or CSV file with a column (e.g. "Links") containing URLs.
+
+2) python classify_summarize_links.py my_links.xlsx --link-column "Links" --output "classified_links.xlsx" \
     --gpt-model "gpt-3.5-turbo" \
     --whisper-model "small" \
     --device "cuda"
+	
 
   - *my_links.xlsx*: your input file.
   - *link-column:* column name in the Excel/CSV that contains the links.
