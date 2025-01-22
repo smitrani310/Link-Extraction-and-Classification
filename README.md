@@ -73,11 +73,10 @@ Logs will be printed to console and also saved in Logs/<timestamp>.log.
 - **Script**: classify_summarize_links.py
 
 - **Purpose**: Iterates over an Excel file containing URLs, attempts to:
-
- >- Download & transcribe if it’s a video (YouTube, Vimeo, etc.).
- >- Summarize if it’s a website.
- >- Classify text output via GPT into configured categories.
- >- Save results (including tags, summaries, and error messages) in a new Excel file.
+  - Download & transcribe if it’s a video (YouTube, Vimeo, etc.).
+  - Summarize if it’s a website.
+  - Classify text output via GPT into configured categories.
+  - Save results (including tags, summaries, and error messages) in a new Excel file.
  
 1) Prepare your Excel or CSV file with a column (e.g. "Links") containing URLs.
 
