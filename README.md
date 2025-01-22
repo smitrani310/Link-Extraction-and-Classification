@@ -56,8 +56,8 @@ This project contains two main scripts:
  - **Purpose**: Reads a .txt file, finds all URLs, and writes them to an output file or prints them on the console.
 
  - Create or place your text file (e.g., sample_input.txt) with URLs.
- >Run:
- >'python extract_links.py --input sample_input.txt --output extracted_links.txt'
+- Run:
+  -'python extract_links.py --input sample_input.txt --output extracted_links.txt'
 
 - **input:** path to the text file containing potential links.
 - **output:** path to save the extracted links (if not specified, it might print to console or use a default file).
@@ -96,10 +96,10 @@ Logs will be printed to console and also saved in Logs/<timestamp>.log.
 *Result:*
 
 An Excel file (e.g. classified_links.xlsx) with added columns like:
- - *TAGS:* The classification categories or WEBSITE_SUMMARY.
- - *Summary:* The summarized text.
- - *Error:* Any error messages (e.g., failed downloads, classification issues).
- - Logs printed to console, with a more detailed log file in Logs/<timestamp>.log.
+  - *TAGS:* The classification categories or WEBSITE_SUMMARY.
+  - *Summary:* The summarized text.
+  - *Error:* Any error messages (e.g., failed downloads, classification issues).
+  - Logs printed to console, with a more detailed log file in Logs/<timestamp>.log.
 
 ---
 
