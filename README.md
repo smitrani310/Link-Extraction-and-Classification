@@ -49,7 +49,7 @@ This project contains two main scripts:
 ---
 
 ## Usage
-Extracting Links from a Text Document
+## Extracting Links from a Text Document
 
  - **Script**: extract_links.py
 
@@ -79,8 +79,8 @@ Logs will be printed to console and also saved in Logs/<timestamp>.log.
  - Classify text output via GPT into configured categories.
  - Save results (including tags, summaries, and error messages) in a new Excel file.
  
-1. Prepare your Excel or CSV file with a column (e.g. "Links") containing URLs.
-2. python classify_summarize_links.py my_links.xlsx --link-column "Links" --output "classified_links.xlsx" \
+ - (1). Prepare your Excel or CSV file with a column (e.g. "Links") containing URLs.
+ - (2). python classify_summarize_links.py my_links.xlsx --link-column "Links" --output "classified_links.xlsx" \
     --gpt-model "gpt-3.5-turbo" \
     --whisper-model "small" \
     --device "cuda"
