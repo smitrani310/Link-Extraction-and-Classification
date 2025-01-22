@@ -56,13 +56,13 @@ Extracting Links from a Text Document
  - **Purpose**: Reads a .txt file, finds all URLs, and writes them to an output file or prints them on the console.
 
  - Create or place your text file (e.g., sample_input.txt) with URLs.
- - Run:
- - python extract_links.py --input sample_input.txt --output extracted_links.txt
+ Run:
+ 'python extract_links.py --input sample_input.txt --output extracted_links.txt'
 
--- input: path to the text file containing potential links.
--- output: path to save the extracted links (if not specified, it might print to console or use a default file).
+- *input:* path to the text file containing potential links.
+- *output:* path to save the extracted links (if not specified, it might print to console or use a default file).
 
-Result:
+*Result:*
 
 A new file extracted_links.txt containing one URL per line.
 Logs will be printed to console and also saved in Logs/<timestamp>.log.
@@ -85,19 +85,19 @@ Logs will be printed to console and also saved in Logs/<timestamp>.log.
     --whisper-model "small" \
     --device "cuda"
 
-  - my_links.xlsx: your input file.
-  - link-column: column name in the Excel/CSV that contains the links.
-  - output: name/path of the output Excel file (default is output.xlsx).
-  - gpt-model: which OpenAI model to use (e.g., gpt-3.5-turbo, gpt-4).
-  - whisper-model: which Whisper model to use (e.g., base, small, medium, large).
-  - device: cuda (GPU) or cpu. If omitted, the script auto-detects GPU availability.
+  - *my_links.xlsx*: your input file.
+  - *link-column:* column name in the Excel/CSV that contains the links.
+  - *output:* name/path of the output Excel file (default is output.xlsx).
+  - *pt-model:* which OpenAI model to use (e.g., gpt-3.5-turbo, gpt-4).
+  - *whisper-model:* which Whisper model to use (e.g., base, small, medium, large).
+  - *device:* cuda (GPU) or cpu. If omitted, the script auto-detects GPU availability.
 
-Result:
+*Result:*
 
 An Excel file (e.g. classified_links.xlsx) with added columns like:
- - TAGS: The classification categories or WEBSITE_SUMMARY.
- - Summary: The summarized text.
- - Error: Any error messages (e.g., failed downloads, classification issues).
+ - *TAGS:* The classification categories or WEBSITE_SUMMARY.
+ - *Summary:* The summarized text.
+ - *Error:* Any error messages (e.g., failed downloads, classification issues).
  - Logs printed to console, with a more detailed log file in Logs/<timestamp>.log.
 
 ---
@@ -108,8 +108,8 @@ Create .env file named : "Environment_Variables.env" with:
  - OPENAI_API_KEY="YourOpenAIKeyHere"
  
 Ensure the .env file is referenced by your scripts:
-	- from dotenv import load_dotenv
-	- load_dotenv("path/to/Environment_Variables.env")
+	'from dotenv import load_dotenv'
+	'load_dotenv("path/to/Environment_Variables.env")'
 This way, openai.api_key can be set via os.getenv("OPENAI_API_KEY").
 
 ---
@@ -124,11 +124,11 @@ You can inspect the log files if you need to debug issues (e.g., network failure
 ---
 
 ## Known Issues & Limitations
- - Token Limits: If summarizing very large webpages, GPT might exceed token limits. You may need to split text into smaller chunks or use an approach that handles more content.
- - Video Domain Identification: A simple domain check is used for recognized video sites. If the site isn’t recognized, it’s treated as a website.
- - Parallelization: The scripts process links sequentially. For large datasets, consider multiprocessing or asynchronous logic.
+ - *Token Limits:* If summarizing very large webpages, GPT might exceed token limits. You may need to split text into smaller chunks or use an approach that handles more content.
+ - *Video Domain Identification:* A simple domain check is used for recognized video sites. If the site isn’t recognized, it’s treated as a website.
+ - *Parallelization:* The scripts process links sequentially. For large datasets, consider multiprocessing or asynchronous logic.
 
-Dependencies:
+*Dependencies:*
  - yt-dlp requires ffmpeg.
  - whisper + torch can be resource-intensive.
  - OpenAI GPT API calls can fail if rate-limited or if the API key is invalid.
