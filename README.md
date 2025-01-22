@@ -49,35 +49,35 @@ This project contains two main scripts:
 ---
 
 ## Usage
-## Extracting Links from a Text Document
+### Extracting Links from a Text Document
 
  - **Script**: extract_links.py
 
  - **Purpose**: Reads a .txt file, finds all URLs, and writes them to an output file or prints them on the console.
 
  - Create or place your text file (e.g., sample_input.txt) with URLs.
- Run:
- 'python extract_links.py --input sample_input.txt --output extracted_links.txt'
+ >Run:
+ >'python extract_links.py --input sample_input.txt --output extracted_links.txt'
 
-- *input:* path to the text file containing potential links.
-- *output:* path to save the extracted links (if not specified, it might print to console or use a default file).
+- **input:** path to the text file containing potential links.
+- **output:** path to save the extracted links (if not specified, it might print to console or use a default file).
 
 *Result:*
 
 A new file extracted_links.txt containing one URL per line.
 Logs will be printed to console and also saved in Logs/<timestamp>.log.
 
----
 
-## Classifying and Summarizing Links from Excel
+
+### Classifying and Summarizing Links from Excel
 - **Script**: classify_summarize_links.py
 
 - **Purpose**: Iterates over an Excel file containing URLs, attempts to:
 
- - Download & transcribe if it’s a video (YouTube, Vimeo, etc.).
- - Summarize if it’s a website.
- - Classify text output via GPT into configured categories.
- - Save results (including tags, summaries, and error messages) in a new Excel file.
+ >- Download & transcribe if it’s a video (YouTube, Vimeo, etc.).
+ >- Summarize if it’s a website.
+ >- Classify text output via GPT into configured categories.
+ >- Save results (including tags, summaries, and error messages) in a new Excel file.
  
 1) Prepare your Excel or CSV file with a column (e.g. "Links") containing URLs.
 
